@@ -1,112 +1,117 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org">
+
 <head>
-    <title>Spring Security Example </title>
-    <link rel="stylesheet" type="text/css" href="@{/css/stylee.css}">
+    <meta charset="ISO-8859-1">
+    <title>Auth page</title>
     <style>
         /* Add styles for container, header, and main content here */
 .container {
-  display: flex;
-  height: 100vh;
-  align-items: center;
-  justify-content: center;
-  background: linear-gradient(to bottom, #14d3ff, #f49595);
-  color: #fff; /*Цвет текста на странице*/
-  background-attachment: fixed; /* Фон страницы фиксируется */
-  background-repeat: repeat-x; /* Изображение повторяется по горизонтали */
-  background-size: 100%;
+display: flex;
+height: 100vh;
+align-items: center;
+justify-content: center;
+background: linear-gradient(to bottom, #14d3ff, #f49595);
+color: #fff; /*???? ?????? ?? ????????*/
+background-attachment: fixed; /* ??? ???????? ??????????? */
+background-repeat: repeat-x; /* ??????????? ??????????? ?? ??????????? */
+background-size: 100%;
 }
 .card {
-  width: 500px;
-  background-color: rgba(214, 41, 25, 0.7);
-  border-radius: 10px;
-  box-shadow: 0px 0px 10px #333;
-  text-align: center;
-  padding: 40px;
+width: 500px;
+background-color: rgba(214, 41, 25, 0.7);
+border-radius: 10px;
+box-shadow: 0px 0px 10px #333;
+text-align: center;
+padding: 40px;
 }
 .card-header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  font-size: 24px;
-  font-weight: bold;
-  margin-bottom: 40px;
-  color: #fff;
-  padding: 20px;
+display: flex;
+justify-content: space-between;
+align-items: center;
+font-size: 24px;
+font-weight: bold;
+margin-bottom: 40px;
+color: #fff;
+padding: 20px;
 }
 h1 {
-  margin: 0;
+margin: 0;
 }
 table {
-  width: 100%;
-  text-align: left;
-  margin-top: 20px;
+width: 100%;
+text-align: left;
+margin-top: 20px;
 }
 th, td {
-  padding: 10px;
+padding: 10px;
 }
 th {
-  background-color: #D62D1C;
-  color: #fff;
+background-color: #D62D1C;
+color: #fff;
 }
 .form-group {
-  margin-bottom: 20px;
+margin-bottom: 20px;
 }
 label {
-  font-size: 18px;
+font-size: 18px;
 }
 input[type="text"],
 input[type="email"],
 input[type="tel"],
 select {
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  border-radius: 5px;
-  border: none;
-  margin-bottom: 20px;
+width: 100%;
+padding: 10px;
+font-size: 18px;
+border-radius: 5px;
+border: none;
+margin-bottom: 20px;
 }
 input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  border-radius: 5px;
-  border: none;
-  margin-bottom: 20px;
+width: 100%;
+padding: 10px;
+font-size: 18px;
+border-radius: 5px;
+border: none;
+margin-bottom: 20px;
 }
 .btn-primary {
-  width: 100%;
-  padding: 10px;
-  font-size: 18px;
-  background-color: #F3C13A;
-  color: #fff;
-  border-radius: 5px;
-  border: none;
-  margin-top: 20px;
+width: 100%;
+padding: 10px;
+font-size: 18px;
+background-color: #F3C13A;
+color: #fff;
+border-radius: 5px;
+border: none;
+margin-top: 20px;
 }
 ul {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  overflow: hidden;
-  background-color: #D62D1C;
+list-style-type: none;
+margin: 0;
+padding: 0;
+overflow: hidden;
+background-color: #D62D1C;
 }
 li {
-  float: left;
+float: left;
 }
 li a, .dropbtn {
-  display: inline-block;
-  color: white;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
+display: inline-block;
+color: white;
+text-align: center;
+padding: 14px 16px;
+text-decoration: none;
 }
 li a:hover, .dropdown:hover .dropbtn {
-  background-color: red;
+background-color: red;
 }
 li.dropdown {
-  display: inline-block;
+display: inline-block;
 }
+body{
+ background: linear-gradient(to bottom, #14d3ff, #f49595);
+}
+
 
     </style>
 </head>
@@ -119,7 +124,7 @@ li.dropdown {
 </div>
 <div class="container mt-5">
     <form th:action="@{/login}" method="post">
-        <div><label> User Name : <input type="text" name="username"/> </label></div>
+        <div><label> IIN : <input type="text" name="username"/> </label></div>
         <div><label> Password: <input type="password" name="password"/> </label></div>
         <div><input type="submit" value="Sign In"/></div>
 </form>
