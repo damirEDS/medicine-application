@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+{% load static %}
+
+<html>
+<head>
+	<title>SoloSprint</title>
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1" />
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="{% static 'css/register.css' %}">
+<link rel="stylesheet" href="{% static 'css/style.css' %}">
+
+<script>
+    function scrollToAboutUs() {
+        document.getElementById('aboutCompanyText').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+<script>
+    function scrollToContacts() {
+        document.getElementById('contactsId').scrollIntoView({ behavior: 'smooth' });
+    }
+</script>
+<script type="text/javascript">
+	var user = '{{request.user}}'
+
+	function getToken(name) {
+		var cookieValue = null;
+		if (document.cookie && document.cookie !== '') {
+			var cookies = document.cookie.split(';');
+			for (var i = 0; i < cookies.length; i++) {
+				var cookie = cookies[i].trim();
+				if (cookie.substring(0, name.length + 1) === (name + '=')) {
+					cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+					break;
+				}
+			}
+		}
+		return cookieValue;
+	}
+	var csrftoken = getToken('csrftoken');
+
+	function getCookie(name) {
+		var cookieArr = document.cookie.split(";");
+
+		for(var i = 0; i < cookieArr.length; i++) {
+			var cookiePair = cookieArr[i].split("=");
+
+			if(name == cookiePair[0].trim()) {
+				return decodeURIComponent(cookiePair[1]);
+			}
+		}
+		return null;
+	}
+
+	var cart = JSON.parse(getCookie('cart'));
+	if (cart == undefined) {
+		cart = {}
+		console.log('Cart was created!')
+		document.cookie = 'cart=' + JSON.stringify(cart)
+	}
+	console.log('Cart:', cart)
+
+</script>
+</head>
+
+<body>
+    <meta itemprop="inLanguage" content="ru" />
+    <div id="container" itemprop="hasPart" itemscope="itemscope" itemtype="https://schema.org/WebPage">
+        <div id="headerBefore">
+            <div id="headerThis" class="wrap">
+                                <header>
+                    <div class="section section--menu" id="headRight">
+
+                        <nav id="nav" class="nav menu menu--adrian" role="navigation" itemprop="hasPart" itemscope="itemscope" itemtype="https://schema.org/SiteNavigationElement">
+
+                            <ul id="menu" class="menu__list nav__menu" tabindex="-1" aria-label="main navigation">
+
+                                <li id="menu-item-264" class="nav__item menu__item"><a itemprop="url" href="{% url 'store' %}" aria-current="page" class="nav__link menu__link">Store<span class="menu__helper" itemprop="name"></span></a></li>
+								<li id="menu-item-263" class="nav__item menu__item"><a itemprop="url" onclick="scrollToAboutUs()" class="nav__link menu__link"><span class="menu__helper" itemprop="name">About US</span></a></li>
+								<li id="menu-item-261" class="nav__item menu__item"><a itemprop="url" href="https://t.me/Zaplesnaveluy_bublik_bot" class="nav__link menu__link"><span class="menu__helper" itemprop="name">Telegram</span></a></li>
+								<li id="menu-item-262" class="nav__item menu__item"><a itemprop="url" href="https://www.instagram.com/cpp.pub/" class="nav__link menu__link"><span class="menu__helper" itemprop="name">Instagram</span></a></li>
+								<li id="menu-item-266" class="nav__item menu__item"><a itemprop="url" onclick="scrollToContacts()" class="nav__link menu__link"><span class="menu__helper" itemprop="name">Contacts</span></a></li>
+								<li id="menu-item-265" class="nav__item menu__item"><a itemprop="url" href="{% url 'login' %}" class="nav__link menu__link"><span class="menu__helper" itemprop="name">Login</span></a></li>
+								<li id="menu-item-267" class="nav__item menu__item"><a itemprop="url" href="{% url 'cart' %}" class="nav__link menu__link"><span class="menu__helper" itemprop="name">Cart</span></a></li>
+                            </ul>
+                            <div class="splash"></div>
+                        </nav>
+                    </div>
+                </header>
+            </div>
+        </div>
+        <meta itemprop="primaryImageOfPage" content='/wp-content/themes/acidhead/img/header.webp' />
+        <main itemscope itemtype="https://schema.org/Article" itemprop="hasPart">
+            <article>
+                <meta itemprop="identifier" content="24">
+<link itemprop="mainEntityOfPage" href="https://ahead-pro.com/dev/" />
+<header>
+    <div class="beforeBlack">
+        <div id="mediaTitle" class="wrap2">
+                        <h1 class="width66" itemprop="headline">
+                Sneakers shop            </h1>
+
+
+
+        </div>
+    </div>
+</header>
+
+<section>
+
+    <div id="aboutCompany" class="wrap2">
+
+        <div class="smallTitle">
+            Sneakers:        </div>
+		<div id="products" class="container">
+			<br>
+			{% block content %}{% endblock %}
+		</div>
+        <div id="aboutCompanyText" class="width66" itemprop="description">
+            <h2>About Us</h2>
+		Welcome to our online shoe store! We offer a wide selection of high-quality footwear from top manufacturers for all ages and needs. Our store also offers accessories like socks, insoles, and shoelaces. We provide fast and convenient shipping, various payment options, and guarantee high-quality products. Our team of experts is always ready to help you choose the right shoes. Thank you for choosing our store!
+    	</div>
+	</div>
+
+</section>
+
+<div itemprop="articleBody">
+<section>
+
+<div id="advantages" class="wrap2">
+
+    <h2 itemprop="alternativeHeadline">Sneakers and Their Types.</h2>
+
+
+    <div id="advantagesGroup">
+
+
+
+        <div class="advantagesThisBlock oneBlock">
+
+            <div class="advantagesVisibleText">
+                Running Sneakers           </div>
+
+            <div class="advantagesInvisibleText">
+                Running sneakers are designed specifically for runners and have special cushioning and sole for better shock absorption during each step. They can also have additional features such as ventilation, water protection, and more.</div>
+
+            <div class="plus">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 19.2 18.6" style="enable-background:new 0 0 19.2 18.6;" xml:space="preserve">
+
+							<polygon class="stPlus" points="19.2,9.1 10.1,9.1 10.1,0 9.1,0 9.1,9.1 0,9.1 0,10.1 9.1,10.1 9.1,18.6 10.1,18.6 10.1,10.1								19.2,10.1 "/>
+				</svg>
+            </div>
+
+        </div>
+
+
+        <div class="advantagesThisBlock twoBlock">
+
+            <div class="advantagesVisibleText">
+                Gym Sneakers:            </div>
+
+            <div class="advantagesInvisibleText">
+                Gym sneakers are designed for workouts in the gym and usually have a more dense sole and more stable construction, allowing for safer and more comfortable workouts.</div>
+
+            <div class="plus">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 19.2 18.6" style="enable-background:new 0 0 19.2 18.6;" xml:space="preserve">
+
+							<polygon class="stPlus" points="19.2,9.1 10.1,9.1 10.1,0 9.1,0 9.1,9.1 0,9.1 0,10.1 9.1,10.1 9.1,18.6 10.1,18.6 10.1,10.1								19.2,10.1 "/>
+				</svg>
+            </div>
+
+        </div>
+
+
+        <div class="advantagesThisBlock twoBlock">
+
+            <div class="advantagesVisibleText">
+                Basketball Sneakers            </div>
+
+            <div class="advantagesInvisibleText">
+				Basketball sneakers are designed to provide better support and stability for basketball players during fast and sudden movements on the court. They often have high tops for ankle support and a thicker sole for better traction.</div>
+
+            <div class="plus">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 19.2 18.6" style="enable-background:new 0 0 19.2 18.6;" xml:space="preserve">
+
+							<polygon class="stPlus" points="19.2,9.1 10.1,9.1 10.1,0 9.1,0 9.1,9.1 0,9.1 0,10.1 9.1,10.1 9.1,18.6 10.1,18.6 10.1,10.1								19.2,10.1 "/>
+				</svg>
+            </div>
+
+        </div>
+
+
+        <div class="advantagesThisBlock oneBlock">
+
+            <div class="advantagesVisibleText">
+                Walking Sneakers            </div>
+
+            <div class="advantagesInvisibleText">
+                Walking sneakers are designed for everyday wear and casual walking. They have a more flexible sole for a natural stride, and often have extra cushioning in the heel and forefoot for added comfort during longer walks.</div>
+
+            <div class="plus">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 19.2 18.6" style="enable-background:new 0 0 19.2 18.6;" xml:space="preserve">
+
+							<polygon class="stPlus" points="19.2,9.1 10.1,9.1 10.1,0 9.1,0 9.1,9.1 0,9.1 0,10.1 9.1,10.1 9.1,18.6 10.1,18.6 10.1,10.1								19.2,10.1 "/>
+				</svg>
+            </div>
+
+        </div>
+
+
+        <div class="advantagesThisBlock oneBlock">
+
+            <div class="advantagesVisibleText">
+                Trail Running Sneakers               </div>
+
+            <div class="advantagesInvisibleText">
+				Trail running sneakers are designed for off-road running and have a more rugged sole for better traction on uneven terrain. They often have extra protection in the toe and heel areas, and may have water-resistant or waterproof materials to protect the feet in wet conditions.</div>
+
+            <div class="plus">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 19.2 18.6" style="enable-background:new 0 0 19.2 18.6;" xml:space="preserve">
+
+							<polygon class="stPlus" points="19.2,9.1 10.1,9.1 10.1,0 9.1,0 9.1,9.1 0,9.1 0,10.1 9.1,10.1 9.1,18.6 10.1,18.6 10.1,10.1								19.2,10.1 "/>
+				</svg>
+            </div>
+
+        </div>
+
+
+        <div class="advantagesThisBlock twoBlock">
+
+            <div class="advantagesVisibleText">
+                Cross-training Sneakers            </div>
+
+            <div class="advantagesInvisibleText">
+                Cross-training sneakers are designed for a variety of workouts and activities, including weightlifting, HIIT, and cardio exercises. They have a flat and stable sole for better balance during weightlifting, and often have added cushioning for impact protection during high-intensity exercises.</div>
+
+            <div class="plus">
+                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                     viewBox="0 0 19.2 18.6" style="enable-background:new 0 0 19.2 18.6;" xml:space="preserve">
+
+							<polygon class="stPlus" points="19.2,9.1 10.1,9.1 10.1,0 9.1,0 9.1,9.1 0,9.1 0,10.1 9.1,10.1 9.1,18.6 10.1,18.6 10.1,10.1								19.2,10.1 "/>
+				</svg>
+            </div>
+
+        </div>
+
+
+    </div>
+</div>
+</section>
+</div>
+ 		</article>
+		</main>
+    <section class="orderWeDoNeed">
+<div class="beforeBlack" itemscope itemtype="http://schema.org/HowTo">
+    <div id="orderWork" class="wrap2">
+        <div class="containerBlock" itemprop="step" itemscope itemtype="http://schema.org/HowToSection">
+            <h2 class="h2TitleBlack" itemprop="name alternativeHeadline">
+                Top 10 Best High-Tech Sneakers
+            </h2>
+            <meta itemprop="position" content="1" />
+            <div class="orderWorkBox orderWorkBoxUp" id="step1" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToStep">
+                <div class="orderWorkNumber">1</div>
+                <meta itemprop="position" content="1" />
+                <div class="orderContent">
+                    <h3 class="orderContentName">Nike Adapt BB 2.0</h3>
+                    <meta itemprop="name" content="Nike Adapt BB 2.0">
+                    <link itemprop="url" href="https://ahead-pro.com/dev/#step1" />
+                    <div class="advancedInfo" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToDirection">
+                        <meta itemprop="position" content="1" />
+                        <span itemprop="afterMedia" itemscope itemtype="https://schema.org/ImageObject">
+                            <link itemprop="contentUrl" href="/wp-content/themes/acidhead/img/orderwork/1.png" />
+                        </span>
+                        <span class="advancedInfoThis" itemprop="text">The Nike Adapt BB 2.0 is a high-tech sneaker that features an auto-lacing system, allowing the wearer to adjust the fit of the shoe with the touch of a button. The shoe also includes a custom motor that can adjust the fit of the shoe to the wearer's foot shape, providing maximum comfort and support. The Nike Adapt BB 2.0 is a must-have for any sneaker enthusiast who wants to stay ahead of the game.</span>
+                    </div>
+                    <div class="orderContentText" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToTip">
+                        <meta itemprop="position" content="2" />
+                        <span itemprop="text">The Nike Adapt BB 2.0 is the future of basketball sneakers.</span>
+                    </div>
+                    <meta itemprop="image" content="/wp-content/themes/acidhead/img/orderwork/1.png" />
+                </div>
+            </div>
+                        <div class="orderWorkBox orderWorkBoxUp" id="step2" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToStep">
+        <div class="orderWorkNumber">2</div>
+        <meta itemprop="position" content="2" />
+        <div class="orderContent">
+            <h3 class="orderContentName">Adidas 4DFWD</h3>
+            <meta itemprop="name" content="Adidas 4DFWD">
+            <link itemprop="url" href="https://example.com/adidas-4dfwd" />
+            <div class="advancedInfo" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToDirection">
+			<meta itemprop="position" content="1" />
+			<span itemprop="afterMedia" itemscope itemtype="https://schema.org/ImageObject">
+			<link itemprop="contentUrl" href="https://example.com/images/adidas-4dfwd.png" />
+			</span>
+			<span class="advancedInfoThis" itemprop="text">The Adidas 4DFWD is a high-tech sneaker that uses 3D-printed technology to create a unique cushioning system. The shoe is designed to enhance forward motion, providing a smooth and comfortable ride. The Adidas 4DFWD also features a Primeknit upper for a snug and supportive fit, making it a great choice for runners and fitness enthusiasts.</span>
+			</div>
+			<div class="orderContentText" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToTip">
+			<meta itemprop="position" content="2" />
+			<span itemprop="text">The Adidas 4DFWD is the ultimate running shoe for those who want to take their performance to the next level.</span>
+			</div>
+			<meta itemprop="image" content="https://example.com/images/adidas-4dfwd.png" />
+			</div>
+			</div>
+                                    <div class="orderWorkBox orderWorkBoxUp" id="step3" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToStep">
+									<div class="orderWorkNumber">3</div>
+									<meta itemprop="position" content="3" />
+									<div class="orderContent">
+										<h3 class="orderContentName">Under Armour HOVR Phantom Connected</h3>
+										<meta itemprop="name" content="Under Armour HOVR Phantom Connected">
+										<link itemprop="url" href="https://example.com/under-armour-hovr-phantom-connected" />
+										<div class="advancedInfo" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToDirection">
+											<meta itemprop="position" content="1" />
+											<span itemprop="afterMedia" itemscope itemtype="https://schema.org/ImageObject">
+												<link itemprop="contentUrl" href="https://example.com/images/under-armour-hovr-phantom-connected.png" />
+											</span>
+											<span class="advancedInfoThis" itemprop="text">The Under Armour HOVR Phantom Connected is a high-tech sneaker that features a connected system that tracks your running data, providing valuable insights into your performance. The shoe also includes HOVR technology that provides a zero-gravity feel, making it a comfortable and responsive choice for runners. The Under Armour HOVR Phantom Connected is perfect for those who want to stay connected and motivated during their runs.</span>
+										</div>
+										<div class="orderContentText" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToTip">
+											<meta itemprop="position" content="2" />
+											<span itemprop="text">The Under Armour HOVR Phantom Connected is the perfect running shoe for tech-savvy runners who want to track their progress.</span>
+										</div>
+										<meta itemprop="image" content="https://example.com/images/under-armour-hovr-phantom-connected.png" />
+									</div>
+								</div>
+						<div class="orderWorkBox orderWorkBoxUp" id="step4" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToStep">
+<div class="orderWorkNumber">4</div>
+<meta itemprop="position" content="4" />
+<div class="orderContent">
+<h3 class="orderContentName">Puma RS-Computer</h3>
+<meta itemprop="name" content="Puma RS-Computer">
+<link itemprop="url" href="https://example.com/puma-rs-computer" />
+<div class="advancedInfo" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToDirection">
+<meta itemprop="position" content="1" />
+<span itemprop="afterMedia" itemscope itemtype="https://schema.org/ImageObject">
+<link itemprop="contentUrl" href="https://example.com/images/puma-rs-computer.png" />
+</span>
+<span class="advancedInfoThis" itemprop="text">The Puma RS-Computer is a high-tech sneaker that was originally released in the 1980s and recently updated with modern technology. The shoe features a built-in computer chip that tracks your running data, including distance, time, and calories burned. The data can be uploaded to your smartphone via Bluetooth for further analysis. The Puma RS-Computer is a unique and stylish option for runners and tech enthusiasts.</span>
+</div>
+<div class="orderContentText" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToTip">
+<meta itemprop="position" content="2" />
+<span itemprop="text">The Puma RS-Computer is a classic sneaker that has been updated for the modern age.</span>
+</div>
+<meta itemprop="image" content="https://example.com/images/puma-rs-computer.png" />
+</div>
+</div>
+						<!-- Кроссовки №5 -->
+<div class="orderWorkBox orderWorkBoxUp" id="step5" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToStep">
+    <div class="orderWorkNumber">5</div>
+    <meta itemprop="position" content="5" />
+    <div class="orderContent">
+        <h3 class="orderContentName">New Balance Fresh Foam More v2</h3>
+        <meta itemprop="name" content="New Balance Fresh Foam More v2">
+        <link itemprop="url" href="https://example.com/new-balance-fresh-foam-more-v2" />
+        <div class="advancedInfo" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToDirection">
+            <meta itemprop="position" content="1" />
+            <span itemprop="afterMedia" itemscope itemtype="https://schema.org/ImageObject">
+                <link itemprop="contentUrl" href="https://example.com/images/new-balance-fresh-foam-more-v2.png" />
+            </span>
+            <span class="advancedInfoThis" itemprop="text">The New Balance Fresh Foam More v2 is a high-tech sneaker that features Fresh Foam X cushioning for a soft and responsive ride. The shoe also has a Hypoknit upper for a supportive and breathable fit. The New Balance Fresh Foam More v2 is a versatile option for runners who want a comfortable and reliable shoe for everyday training.</span>
+        </div>
+        <div class="orderContentText" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToTip">
+            <meta itemprop="position" content="2" />
+            <span itemprop="text">The New Balance Fresh Foam More v2 is a great option for runners who prioritize comfort and versatility.</span>
+</div>
+<meta itemprop="image" content="https://example.com/images/new-balance-fresh-foam-more-v2.png" />
+</div>
+</div>
+
+                                    <div class="orderWorkBox orderWorkBoxUp" id="step6" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToStep">
+    <div class="orderWorkNumber">6</div>
+    <meta itemprop="position" content="6" />
+    <div class="orderContent">
+        <h3 class="orderContentName">Asics Gel-Kayano 28</h3>
+        <meta itemprop="name" content="Asics Gel-Kayano 28">
+        <link itemprop="url" href="https://example.com/asics-gel-kayano-28" />
+        <div class="advancedInfo" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToDirection">
+            <meta itemprop="position" content="1" />
+            <span itemprop="afterMedia" itemscope itemtype="https://schema.org/ImageObject">
+                <link itemprop="contentUrl" href="https://example.com/images/asics-gel-kayano-28.png" />
+            </span>
+            <span class="advancedInfoThis" itemprop="text">The Asics Gel-Kayano 28 is a high-tech sneaker that features Gel technology for maximum shock absorption and a comfortable ride. The shoe also has a Jacquard mesh upper for a snug and breathable fit. The Asics Gel-Kayano 28 is a great choice for runners who want a reliable and supportive shoe for long-distance training.</span>
+        </div>
+        <div class="orderContentText" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToTip">
+            <meta itemprop="position" content="2" />
+            <span itemprop="text">The Asics Gel-Kayano 28 is a top-performing running shoe for those who prioritize support and cushioning.</span>
+        </div>
+        <meta itemprop="image" content="https://example.com/images/asics-gel-kayano-28.png" />
+    </div>
+</div>
+                                    <div class="orderWorkBox orderWorkBoxUp" id="step7" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToStep">
+    <div class="orderWorkNumber">7</div>
+    <meta itemprop="position" content="7" />
+    <div class="orderContent">
+        <h3 class="orderContentName">Brooks Levitate 5</h3>
+        <meta itemprop="name" content="Brooks Levitate 5">
+        <link itemprop="url" href="https://example.com/brooks-levitate-5" />
+        <div class="advancedInfo" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToDirection">
+            <meta itemprop="position" content="1" />
+            <span itemprop="afterMedia" itemscope itemtype="https://schema.org/ImageObject">
+                <link itemprop="contentUrl" href="https://example.com/images/brooks-levitate-5.png" />
+            </span>
+            <span class="advancedInfoThis" itemprop="text">The Brooks Levitate 5 is a high-tech sneaker that features DNA AMP technology, providing maximum energy return with every stride. The shoe also hasra breathable Fit Knit upper for a comfortable and snug fit. The Brooks Levitate 5 is a great choice for runners who want a responsive and supportive shoe for everyday training.</span>
+</div>
+<div class="orderContentText" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToTip">
+<meta itemprop="position" content="2" />
+<span itemprop="text">The Brooks Levitate 5 is a top-performing running shoe that provides great energy return and support.</span>
+</div>
+<meta itemprop="image" content="https://example.com/images/brooks-levitate-5.png" />
+</div>
+</div>
+                                    <div class="orderWorkBox orderWorkBoxUp" id="step8" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToStep">
+    <div class="orderWorkNumber">8</div>
+    <meta itemprop="position" content="8" />
+    <div class="orderContent">
+        <h3 class="orderContentName">Adidas Ultraboost 21</h3>
+        <meta itemprop="name" content="Adidas Ultraboost 21">
+        <link itemprop="url" href="https://example.com/adidas-ultraboost-21" />
+        <div class="advancedInfo" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToDirection">
+            <meta itemprop="position" content="1" />
+            <span itemprop="afterMedia" itemscope itemtype="https://schema.org/ImageObject">
+                <link itemprop="contentUrl" href="https://example.com/images/adidas-ultraboost-21.png" />
+            </span>
+            <span class="advancedInfoThis" itemprop="text">The Adidas Ultraboost 21 is a high-tech sneaker that features Boost technology for a responsive and comfortable ride. The shoe also has a Primeknit+ upper for a snug and supportive fit. The Adidas Ultraboost 21 is a popular choice for runners and sneaker enthusiasts alike, thanks to its combination of performance and style.</span>
+        </div>
+        <div class="orderContentText" itemprop="itemListElement" itemscope itemtype="http://schema.org/HowToTip">
+            <meta itemprop="position" content="2" />
+            <span itemprop="text">The Adidas Ultraboost 21 is a top-performing running shoe that looks as good as it feels.</span>
+        </div>
+        <meta itemprop="image" content="https://example.com/images/adidas-ultraboost-21.png" />
+    </div>
+</div>
+
+                            </div>
+        </div>
+	<div class="container">
+		<div id="contactsId" class="contacts" style="font-size: 20px; text-align: center;">
+			<p>Название компании</p>
+            <p>Адрес: 12345</p>
+            <p>Телефон: +7 (123) 456-78-90</p>
+            <p>Email: info@example.com</p>
+            <p>© 2023 SoloSprint. Все права защищены.</p>
+        </div>
+    </div>
+</div></section>
+    </div>
+</body>
+
+	<script type="text/javascript">
+                var user = '{{request.user}}';
+
+                function getToken(name) {
+                    var cookieValue = null;
+                    if (document.cookie && document.cookie !== '') {
+                        var cookies = document.cookie.split(';');
+                        for (var i = 0; i < cookies.length; i++) {
+                            var cookie = cookies[i].trim();
+                            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                                break;
+                            }
+                        }
+                    }
+                    return cookieValue;
+                }
+
+                var csrftoken = getToken('csrftoken');
+
+                function getCookie(name) {
+                    var cookieArr = document.cookie.split(";");
+
+                    for (var i = 0; i < cookieArr.length; i++) {
+                        var cookiePair = cookieArr[i].split("=");
+
+                        if (name == cookiePair[0].trim()) {
+                            return decodeURIComponent(cookiePair[1]);
+                        }
+                    }
+                    return null;
+                }
+
+                var cart = JSON.parse(getCookie('cart'));
+                if (cart == undefined) {
+                    cart = {};
+                    console.log('Cart was created!');
+                    document.cookie = 'cart=' + JSON.stringify(cart);
+                }
+                console.log('Cart:', cart);
+            </script>
+            <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/2.9.3/umd/popper.min.js" integrity="sha512-jy7CE/umgKjwmwXSvvoBmD0ZzQrsoAzr3q9e0v/JGTl/WzOhrfBJfl3GdASZWnZnKNSxmq1M5S1S5fb5YyK5FA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+
+
+
+
+
+
