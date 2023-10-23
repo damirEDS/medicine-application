@@ -48,12 +48,12 @@ public class PatientService implements UserDetailsService {
 
     @Override
     @Transactional
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        Patient patient = findByUsername(username).orElseThrow(() -> new UsernameNotFoundException(
-                String.format("Пользователь '%s' не найден", username)
+    public UserDetails loadUserByUsername(String iin) throws UsernameNotFoundException {
+        Patient patient = findByIIN(iin).orElseThrow(() -> new UsernameNotFoundException(
+                String.format("Пользователь '%s' не найден", iin)
         ));
         return new org.springframework.security.core.userdetails.User(
-                patient.getUsername(),
+                patient.getIin(),
                 patient.getPassword(),
                 patient.getRoles().stream().map(role -> new SimpleGrantedAuthority(role.getName())).collect(Collectors.toList())
         );
@@ -61,7 +61,7 @@ public class PatientService implements UserDetailsService {
 
     public Patient createNewUser(RegistrationUserDto registrationUserDto) {
         Patient patient = new Patient();
-        patient.setUsername(registrationUserDto.getUsername());
+        patient.setIin(registrationUserDto.getUsername());
         patient.setEmail(registrationUserDto.getEmail());
         patient.setPassword(passwordEncoder.encode(registrationUserDto.getPassword()));
         patient.setRoles(List.of(roleService.getUserRole()));
