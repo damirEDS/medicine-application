@@ -7,8 +7,6 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 public class MedicineApplication {
 
 	public static void main(String[] args) {
-		Flyway flyway = Flyway.configure().dataSource("jdbc:postgresql://localhost:5432/mydatabase", "myuser", "mypassword").load();
-		flyway.migrate();
 		SpringApplication.run(MedicineApplication.class, args);
 	}
 }

@@ -7,6 +7,6 @@ import com.medicineservices.springboot.entities.Patient;
 import java.util.Optional;
 
 @Repository
-public interface UserRepository extends CrudRepository<Patient, Long> {
-    Optional<Patient> findByIIN(String iin);
+public interface PatientRepository extends CrudRepository<Patient, Long> {
+    Optional<Patient> findByIin(String iin);
 }

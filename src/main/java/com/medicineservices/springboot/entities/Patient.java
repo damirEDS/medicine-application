@@ -1,14 +1,14 @@
 package com.medicineservices.springboot.entities;
 
 import lombok.Data;
-import javax.persistence.*;
-import java.util.Collection;
-import lombok.NoArgsConstructor;
+
 import java.util.Date;
+import javax.persistence.*;
+import javax.validation.constraints.Pattern;
+import java.util.Collection;
 
 @Entity
 @Data
-@NoArgsConstructor
 @Table(name = "patients")
 public class Patient {
     @Id
@@ -16,7 +16,8 @@ public class Patient {
     @Column(name = "id")
     private Long id;
 
-    @Column(name = "iin")
+    @Column(name = "iin", length = 12, unique = true)
+    @Pattern(regexp = "\\d{12}", message = "ИИН должен состоять из 12 цифр")
     private String iin;
 
     @Column(name = "password")
@@ -25,25 +26,24 @@ public class Patient {
     @Column(name = "email")
     private String email;
 
+    @Column(name = "full_name")
+    private String fullName;
+
+    @Column(name = "gender")
+    private String gender;
+
     @Column(name = "date_of_birth")
     private Date dateOfBirth;
 
-    @Column(name = "is_male")
-    private boolean isMale;
+    @Column(name = "phone_number")
+    private String phoneNumber;
 
-    @Column(name = "first_name") // Добавили имя
-    private String firstName;
+    // Другие поля и аннотации...
 
-    @Column(name = "last_name") // Добавили фамилию
-    private String lastName;
-
-    @Column(name = "middle_name") // Добавили отчество
-    private String middleName;
-
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(
-            name = "users_roles",
-            joinColumns = @JoinColumn(name = "user_id"),
+            name = "patients_roles",
+            joinColumns = @JoinColumn(name = "patient_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Collection<Role> roles;
