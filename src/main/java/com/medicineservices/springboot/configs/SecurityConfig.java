@@ -14,16 +14,16 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.HttpStatusEntryPoint;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
-import ru.flamexander.spring.security.jwt.service.UserService;
+import com.medicineservices.springboot.service.PatientService;
 
 @EnableWebSecurity
 @EnableGlobalMethodSecurity(securedEnabled = true)
 public class SecurityConfig {
-    private UserService userService;
+    private PatientService userService;
     private JwtRequestFilter jwtRequestFilter;
 
     @Autowired
-    public void setUserService(UserService userService) {
+    public void setUserService(PatientService userService) {
         this.userService = userService;
     }
 

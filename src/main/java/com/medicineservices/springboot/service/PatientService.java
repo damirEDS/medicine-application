@@ -42,8 +42,8 @@ public class PatientService implements UserDetailsService {
         this.passwordEncoder = passwordEncoder;
     }
 
-    public Optional<Patient> findByIIN(String username) {
-        return userRepository.findByUsername(username);
+    public Optional<Patient> findByIIN(String iin) {
+        return userRepository.findByIIN(iin);
     }
 
     @Override
@@ -61,7 +61,7 @@ public class PatientService implements UserDetailsService {
 
     public Patient createNewUser(RegistrationUserDto registrationUserDto) {
         Patient patient = new Patient();
-        patient.setIin(registrationUserDto.getUsername());
+        patient.setIin(registrationUserDto.getIin());
         patient.setEmail(registrationUserDto.getEmail());
         patient.setPassword(passwordEncoder.encode(registrationUserDto.getPassword()));
         patient.setRoles(List.of(roleService.getUserRole()));

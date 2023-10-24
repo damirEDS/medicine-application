@@ -10,7 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import ru.flamexander.spring.security.jwt.utils.JwtTokenUtils;
+import com.medicineservices.springboot.utils.JwtTokenUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;
