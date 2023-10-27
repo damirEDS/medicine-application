@@ -26,19 +26,18 @@ public class Patient {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "full_name")
-    private String fullName;
+//    @Column(name = "full_name")
+//    private String fullName;
+//
+//    @Column(name = "gender")
+//    private Boolean gender;
+//
+//    @Column(name = "date_of_birth")
+//    private Date dateOfBirth;
+//
+//    @Column(name = "phone_number")
+//    private String phoneNumber;
 
-    @Column(name = "gender")
-    private String gender;
-
-    @Column(name = "date_of_birth")
-    private Date dateOfBirth;
-
-    @Column(name = "phone_number")
-    private String phoneNumber;
-
-    // Другие поля и аннотации...
 
     @ManyToMany
     @JoinTable(
