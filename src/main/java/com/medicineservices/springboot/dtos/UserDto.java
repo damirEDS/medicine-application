@@ -11,6 +11,6 @@ import java.util.Collection;
 @AllArgsConstructor
 public class UserDto {
     private Long id;
-    private String username;
+    private String iin;
     private String email;
 }

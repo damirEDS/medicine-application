@@ -24,7 +24,7 @@ public class SecurityConfig {
     private JwtRequestFilter jwtRequestFilter;
 
     @Autowired
-    public void setUserService(PatientService patientService) {
+    public void setPatientService(PatientService patientService) {
         this.patientService = patientService;
     }
 

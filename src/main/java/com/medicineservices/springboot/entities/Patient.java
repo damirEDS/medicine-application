@@ -4,7 +4,7 @@ import lombok.Data;
 
 import java.util.Date;
 import javax.persistence.*;
-import javax.validation.constraints.Pattern;
+//import javax.validation.constraints.Pattern;
 import java.util.Collection;
 
 @Entity
@@ -17,7 +17,7 @@ public class Patient {
     private Long id;
 
     @Column(name = "iin", length = 12, unique = true)
-    @Pattern(regexp = "\\d{12}", message = "ИИН должен состоять из 12 цифр")
+//    @Pattern(regexp = "\\d{12}", message = "ИИН должен состоять из 12 цифр")
     private String iin;
 
     @Column(name = "password")
@@ -41,7 +41,7 @@ public class Patient {
 
     @ManyToMany
     @JoinTable(
-            name = "patients_roles",
+            name = "users_roles",
             joinColumns = @JoinColumn(name = "patient_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )

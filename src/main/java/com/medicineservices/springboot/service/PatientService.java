@@ -58,7 +58,7 @@ public class PatientService implements UserDetailsService {
     }
     public Patient createNewUser(RegistrationUserDto registrationUserDto) {
         Patient patient = new Patient();
-        patient.setIin(registrationUserDto.getUsername());
+        patient.setIin(registrationUserDto.getIin());
         patient.setEmail(registrationUserDto.getEmail());
         patient.setPassword(passwordEncoder.encode(registrationUserDto.getPassword()));
         patient.setRoles(List.of(roleService.getUserRole()));
