@@ -41,7 +41,7 @@ public class Patient {
 
     @ManyToMany
     @JoinTable(
-            name = "users_roles",
+            name = "patients_roles",
             joinColumns = @JoinColumn(name = "patient_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )

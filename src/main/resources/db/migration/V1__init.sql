@@ -17,7 +17,7 @@ create table roles (
   primary key (id)
 );
 
-CREATE TABLE users_roles (
+CREATE TABLE patients_roles (
   patient_id               bigint not null,
   role_id               int not null,
   primary key (patient_id, role_id),
@@ -34,7 +34,7 @@ values
 ('040310501648', '$2a$04$Fx/SX9.BAvtPlMyIIqqFx.hLY2Xp8nnhpzvEEVINvVpwIPbA3v/.i', 'user@gmail.com'),
 ('050310501648', '$2a$04$Fx/SX9.BAvtPlMyIIqqFx.hLY2Xp8nnhpzvEEVINvVpwIPbA3v/.i', 'admin@gmail.com');
 
-insert into users_roles (patient_id, role_id)
+insert into patients_roles (patient_id, role_id)
 values
 (1, 1),
 (2, 2);
