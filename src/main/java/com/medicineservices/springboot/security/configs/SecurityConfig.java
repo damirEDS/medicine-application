@@ -1,7 +1,7 @@
-package com.medicineservices.springboot.configs;
+package com.medicineservices.springboot.security.configs;
 
 import lombok.RequiredArgsConstructor;
-import com.medicineservices.springboot.service.PatientService;
+import com.medicineservices.springboot.security.service.PatientService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpStatus;

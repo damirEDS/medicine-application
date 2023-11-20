@@ -1,7 +1,7 @@
-package com.medicineservices.springboot.service;
+package com.medicineservices.springboot.security.service;
 
 import lombok.RequiredArgsConstructor;
-import com.medicineservices.springboot.dtos.RegistrationUserDto;
+import com.medicineservices.springboot.security.dtos.RegistrationUserDto;
 
 import org.springframework.context.annotation.Lazy;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,19 +12,25 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.medicineservices.springboot.entities.Patient;
-import com.medicineservices.springboot.repositories.PatientRepository;
+import com.medicineservices.springboot.security.entities.Patient;
+import com.medicineservices.springboot.security.repositories.PatientRepository;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
+@RequiredArgsConstructor
 public class PatientService implements UserDetailsService {
     private PatientRepository patientRepository;
     private RoleService roleService;
     private PasswordEncoder passwordEncoder;
 
+    public PatientService(PatientRepository patientRepository, RoleService roleService, PasswordEncoder passwordEncoder) {
+        this.patientRepository = patientRepository;
+        this.roleService = roleService;
+        this.passwordEncoder = passwordEncoder;
+    }
     @Autowired
     public void setUserRepository(PatientRepository patientRepository) {
         this.patientRepository = patientRepository;

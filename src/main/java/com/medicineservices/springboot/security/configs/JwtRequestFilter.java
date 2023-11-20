@@ -1,4 +1,4 @@
-package com.medicineservices.springboot.configs;
+package com.medicineservices.springboot.security.configs;
 
 
 import io.jsonwebtoken.ExpiredJwtException;
@@ -10,7 +10,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
-import com.medicineservices.springboot.utils.JwtTokenUtils;
+import com.medicineservices.springboot.security.utils.JwtTokenUtils;
 
 import javax.servlet.FilterChain;
 import javax.servlet.ServletException;

@@ -1,4 +1,4 @@
-package com.medicineservices.springboot.utils;
+package com.medicineservices.springboot.security.utils;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
