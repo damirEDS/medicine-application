@@ -1,14 +1,14 @@
-package com.medicineservices.springboot.service;
+package com.medicineservices.springboot.security.service;
 
-import com.medicineservices.springboot.dtos.JwtRequest;
-import com.medicineservices.springboot.dtos.JwtResponse;
-import com.medicineservices.springboot.dtos.RegistrationUserDto;
-import com.medicineservices.springboot.dtos.UserDto;
-import com.medicineservices.springboot.entities.Patient;
-import com.medicineservices.springboot.exceptions.AppError;
-import com.medicineservices.springboot.utils.JwtTokenUtils;
-import com.medicineservices.springboot.repositories.RoleRepository;
-import com.medicineservices.springboot.repositories.PatientRepository;
+import com.medicineservices.springboot.security.dtos.JwtRequest;
+import com.medicineservices.springboot.security.dtos.JwtResponse;
+import com.medicineservices.springboot.security.dtos.RegistrationUserDto;
+import com.medicineservices.springboot.security.dtos.UserDto;
+import com.medicineservices.springboot.security.entities.Patient;
+import com.medicineservices.springboot.security.exceptions.AppError;
+import com.medicineservices.springboot.security.utils.JwtTokenUtils;
+import com.medicineservices.springboot.security.repositories.RoleRepository;
+import com.medicineservices.springboot.security.repositories.PatientRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.PostMapping;

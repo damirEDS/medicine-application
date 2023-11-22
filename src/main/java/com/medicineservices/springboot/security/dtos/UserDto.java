@@ -1,8 +1,8 @@
-package com.medicineservices.springboot.dtos;
+package com.medicineservices.springboot.security.dtos;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import com.medicineservices.springboot.entities.Role;
+import com.medicineservices.springboot.security.entities.Role;
 
 import javax.persistence.*;
 import java.util.Collection;
