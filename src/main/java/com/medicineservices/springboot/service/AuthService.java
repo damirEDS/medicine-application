@@ -52,7 +52,7 @@ public class AuthService {
             return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Пароли не совпадают"), HttpStatus.BAD_REQUEST);
         }
         if (patientService.findByIin(registrationUserDto.getIin()).isPresent()) {
-            return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Пользователь с указанным именем уже существует"), HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Пользователь с указанным ИИН уже существует"), HttpStatus.BAD_REQUEST);
         }
         Patient patient = patientService.createNewUser(registrationUserDto);
         return ResponseEntity.ok(new UserDto(patient.getId(), patient.getIin(), patient.getEmail()));
