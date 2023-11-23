@@ -1,17 +1,26 @@
 package com.medicineservices.springboot.security.controllers;
 
+import com.medicineservices.springboot.security.service.AuthService;
+import com.medicineservices.springboot.translation.service.TranslationService;
+import org.springframework.context.MessageSource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.security.Principal;
+import java.util.Locale;
 
 @RestController
 @RequestMapping("/api")
 public class MainController {
+    private final TranslationService translationService;
+
+    public MainController(TranslationService translationService) {
+        this.translationService= translationService;
+    }
     @GetMapping("/main")
     public String unsecuredData() {
-        return "";
-    }
+        String translatedMessage = "osdfois";
+        return translatedMessage;}
 
     @GetMapping("/secured")
     public String securedData() {

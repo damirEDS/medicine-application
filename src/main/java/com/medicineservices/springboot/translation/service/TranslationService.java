@@ -1,4 +1,4 @@
-package com.medicineservices.springboot.translation;
+package com.medicineservices.springboot.translation.service;
 
 import org.springframework.context.MessageSource;
 import org.springframework.stereotype.Service;
