@@ -1,17 +1,16 @@
-package com.medicineservices.springboot.controllers;
+package com.medicineservices.springboot.security.controllers;
 
-import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-
 import java.security.Principal;
 
 @RestController
-@RequiredArgsConstructor
+@RequestMapping("/api")
 public class MainController {
-    @GetMapping("/unsecured")
+    @GetMapping("/main")
     public String unsecuredData() {
-        return "Unsecured data";
+        return "";
     }
 
     @GetMapping("/secured")

@@ -1,4 +1,4 @@
-package com.medicineservices.springboot.exceptions;
+package com.medicineservices.springboot.security.exceptions;
 
 import lombok.Data;
 

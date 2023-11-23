@@ -1,4 +1,4 @@
-package com.medicineservices.springboot.dtos;
+package com.medicineservices.springboot.security.dtos;
 
 import lombok.Data;
 
