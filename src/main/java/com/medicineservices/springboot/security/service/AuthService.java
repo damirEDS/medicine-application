@@ -31,7 +31,7 @@ public class AuthService {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getIin(), authRequest.getPassword()));
         } catch (BadCredentialsException e) {
-            String errorMessage = translationService.getTranslation("auth.badCredentials",  LocaleContextHolder.getLocale());
+            String errorMessage = translationService.("auth.badCredentials",  LocaleContextHolder.getLocale());
             return new ResponseEntity<>(new AppError(HttpStatus.UNAUTHORIZED.value(), errorMessage), HttpStatus.UNAUTHORIZED);
         }
         UserDetails userDetails = patientService.loadUserByUsername(authRequest.getIin());
