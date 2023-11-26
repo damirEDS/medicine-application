@@ -1,27 +1,16 @@
 package com.medicineservices.springboot.security.controllers;
 
-import com.medicineservices.springboot.security.service.AuthService;
-import com.medicineservices.springboot.translation.service.TranslationService;
-import org.springframework.context.MessageSource;
-import org.springframework.context.i18n.LocaleContextHolder;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 import java.security.Principal;
-import java.util.Locale;
 
-@RestController
-@RequestMapping("/api")
+
+@Controller
 public class MainController {
-    private final TranslationService translationService;
-
-    public MainController(TranslationService translationService) {
-        this.translationService= translationService;
-    }
     @GetMapping("/main")
     public String unsecuredData() {
-        String translatedMessage = translationService.getTranslation("auth.badCredentials",  LocaleContextHolder.getLocale());
-        return translatedMessage;}
+        return "unsecured";}
 
     @GetMapping("/secured")
     public String securedData() {
@@ -31,6 +20,10 @@ public class MainController {
     @GetMapping("/admin")
     public String adminData() {
         return "Admin data";
+    }
+    @GetMapping("/")
+    public String changeLanguage(){
+        return "language";
     }
 
     @GetMapping("/info")

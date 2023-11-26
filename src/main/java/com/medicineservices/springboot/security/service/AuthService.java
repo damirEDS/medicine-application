@@ -19,22 +19,22 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
+import java.util.Locale;
+
 @Service
 @RequiredArgsConstructor
 public class AuthService {
     private final PatientService patientService;
     private final JwtTokenUtils jwtTokenUtils;
     private final AuthenticationManager authenticationManager;
-    private final TranslationService translationService;
 
     public ResponseEntity<?> createAuthToken(@RequestBody JwtRequest authRequest) {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getIin(), authRequest.getPassword()));
         } catch (BadCredentialsException e) {
-            String errorMessage = translationService.("auth.badCredentials",  LocaleContextHolder.getLocale());
-            return new ResponseEntity<>(new AppError(HttpStatus.UNAUTHORIZED.value(), errorMessage), HttpStatus.UNAUTHORIZED);
+            return new ResponseEntity<>(new AppError(HttpStatus.UNAUTHORIZED.value(), "Неправильный логин или пароль"), HttpStatus.UNAUTHORIZED);
         }
-        UserDetails userDetails = patientService.loadUserByUsername(authRequest.getIin());
+            UserDetails userDetails = patientService.loadUserByUsername(authRequest.getIin());
         String token = jwtTokenUtils.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
     }

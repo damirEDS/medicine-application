@@ -7,7 +7,6 @@ import com.medicineservices.springboot.security.dtos.RegistrationUserDto;
 import com.medicineservices.springboot.security.service.AuthService;
 
 @RestController
-@RequestMapping("/api")
 public class AuthController {
     private final AuthService authService;
 
