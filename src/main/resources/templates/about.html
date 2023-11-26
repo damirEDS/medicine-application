@@ -27,14 +27,15 @@
         </div>
     </div>
     <div class="main_content">
-        <div class="header" th:text="#{sidebar.home}">
+        <div class="header">
+            Welcome!! Have a nice day.
             <div class="buttons" th:fragment="buttons">
                 <button><img th:src="@{/icons/lang-en.png}"
-                             onclick="window.location.href='http://localhost:8081/?local=en'"></button>
+                             onclick="window.location.href='http://localhost:8081/about/?local=en'"></button>
                 <button><img th:src="@{/icons/lang-ru.png}"
-                             onclick="window.location.href='http://localhost:8081/?local=ru'"></button>
+                             onclick="window.location.href='http://localhost:8081/about/?local=ru'"></button>
                 <button><img th:src="@{/icons/lang-kk.png}"
-                             onclick="window.location.href='http://localhost:8081/?local=kk'"></button>
+                             onclick="window.location.href='http://localhost:8081/about/?local=kk'"></button>
             </div>
         </div>
         <div class="info">

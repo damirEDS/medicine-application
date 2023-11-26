@@ -8,6 +8,16 @@ import java.security.Principal;
 
 @Controller
 public class MainController {
+    @GetMapping("/")
+    public String baseTemplate(){
+        return "home";
+    }
+
+    @GetMapping("/about")
+    public String aboutTemplate(){
+        return "about";
+    }
+
     @GetMapping("/main")
     public String unsecuredData() {
         return "unsecured";}
@@ -20,10 +30,6 @@ public class MainController {
     @GetMapping("/admin")
     public String adminData() {
         return "Admin data";
-    }
-    @GetMapping("/")
-    public String changeLanguage(){
-        return "home";
     }
 
     @GetMapping("/info")
