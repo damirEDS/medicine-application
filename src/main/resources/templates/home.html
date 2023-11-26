@@ -1,11 +1,61 @@
 <!DOCTYPE html>
-<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html xmlns:th="https://www.thymeleaf.org">
 <head>
-    <title>Spring Security Example</title>
+    <meta charset="UTF-8">
+    <title th:text="#{sidebar.title}"></title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
 </head>
 <body>
-<h1>Welcome!</h1>
+<div class="wrapper">
+    <div class="sidebar">
+        <h2>Tau Clinics</h2>
+        <ul>
+            <li><a href="#"><i class="fas fa-home"></i><span th:text="#{sidebar.home}">Home</span></a></li>
+            <li><a href="#"><i class="fas fa-user"></i><span th:text="#{sidebar.profile}">Profile</span></a></li>
+            <li><a href="#"><i class="fas fa-address-card"></i><span th:text="#{sidebar.about}">About</span></a></li>
+            <li><a href="#"><i class="fas fa-project-diagram"></i><span th:text="#{sidebar.portfolio}">Portfolio</span></a></li>
+            <li><a href="#"><i class="fas fa-blog"></i><span th:text="#{sidebar.blogs}">Blogs</span></a></li>
+            <li><a href="#"><i class="fas fa-address-book"></i><span th:text="#{sidebar.contact}">Contact</span></a></li>
+            <li><a href="#"><i class="fas fa-map-pin"></i><span th:text="#{sidebar.map}">Map</span></a></li>
+        </ul>
+        <div class="social_media">
+            <a href="#"><i class=""></i></a>
+            <a href="#"><i class=""></i></a>
+            <a href="#"><i class=""></i></a>
+            <a href="#"><i class="fab fa-facebook-f"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+        </div>
+    </div>
+    <div class="main_content">
+        <div class="header">
+            Welcome!! Have a nice day.
+            <div class="buttons">
+                <button><img src="icon1.png" alt="Icon 1"></button>
+                <button><img src="icon2.png" alt="Icon 2"></button>
+                <button><img src="icon3.png" alt="Icon 3"></button>
+            </div>
+        </div>
+        <div class="info">
+            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos perferendis eos? Consequuntur!</div>
+            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos perferendis eos? Consequuntur!</div>
+            <div>Lorem ipsum dolor sit, amet consectetur adipisicing elit. A sed nobis ut exercitationem atque accusamus sit natus officiis totam blanditiis at eum nemo, nulla et quae eius culpa eveniet voluptatibus repellat illum tenetur, facilis porro. Quae fuga odio perferendis itaque alias sint, beatae non maiores magnam ad, veniam tenetur atque ea exercitationem earum eveniet totam ipsam magni tempora aliquid ullam possimus? Tempora nobis facere porro, praesentium magnam provident accusamus temporibus! Repellendus harum veritatis itaque molestias repudiandae ea corporis maiores non obcaecati libero, unde ipsum consequuntur aut consectetur culpa magni omnis vero odio suscipit vitae dolor quod dignissimos perferendis eos? Consequuntur!</div>
+        </div>
+    </div>
+</div>
+<span th:text="#{hello}"></span><br>
+<span th:text="#{welcome}"></span><br>
 
-<p>Click <a th:href="@{/hello}">here</a> to see a greeting.</p>
+<br><span th:text="#{welcome}"></span>
+<button type="button" th:text="#{switch-en}"
+        onclick="window.location.href='http://localhost:8081/?local=en'">
+</button>
+<button type="button" th:text="#{switch-ru}"
+        onclick="window.location.href='http://localhost:8081/?local=ru'">
+</button>
+<button type="button" th:text="#{switch-kk}"
+        onclick="window.location.href='http://localhost:8081/?local=kk'">
+</button>
 </body>
 </html>

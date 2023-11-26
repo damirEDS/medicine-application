@@ -1,4 +1,4 @@
-package com.medicineservices.springboot.security.controllers;
+package com.medicineservices.springboot.main.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -23,7 +23,7 @@ public class MainController {
     }
     @GetMapping("/")
     public String changeLanguage(){
-        return "language";
+        return "home";
     }
 
     @GetMapping("/info")
