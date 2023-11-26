@@ -7,15 +7,9 @@ import com.medicineservices.springboot.security.dtos.UserDto;
 import com.medicineservices.springboot.security.entities.Patient;
 import com.medicineservices.springboot.security.exceptions.AppError;
 import com.medicineservices.springboot.security.utils.JwtTokenUtils;
-import com.medicineservices.springboot.security.repositories.RoleRepository;
-import com.medicineservices.springboot.security.repositories.PatientRepository;
+import com.medicineservices.springboot.translation.service.TranslationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
-import org.springframework.security.crypto.password.PasswordEncoder;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -25,9 +19,7 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.List;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import java.util.Locale;
 
 @Service
 @RequiredArgsConstructor
@@ -42,7 +34,7 @@ public class AuthService {
         } catch (BadCredentialsException e) {
             return new ResponseEntity<>(new AppError(HttpStatus.UNAUTHORIZED.value(), "Неправильный логин или пароль"), HttpStatus.UNAUTHORIZED);
         }
-        UserDetails userDetails = patientService.loadUserByUsername(authRequest.getIin());
+            UserDetails userDetails = patientService.loadUserByUsername(authRequest.getIin());
         String token = jwtTokenUtils.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
     }

@@ -1,17 +1,16 @@
 package com.medicineservices.springboot.security.controllers;
 
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+
 import java.security.Principal;
 
-@RestController
-@RequestMapping("/api")
+
+@Controller
 public class MainController {
     @GetMapping("/main")
     public String unsecuredData() {
-        return "";
-    }
+        return "unsecured";}
 
     @GetMapping("/secured")
     public String securedData() {
@@ -21,6 +20,10 @@ public class MainController {
     @GetMapping("/admin")
     public String adminData() {
         return "Admin data";
+    }
+    @GetMapping("/")
+    public String changeLanguage(){
+        return "language";
     }
 
     @GetMapping("/info")
