@@ -3,43 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <title th:text="#{sidebar.title}"></title>
-    <link rel="icon" th:href="@{/icons/icon.png}" type="image/x-icon">
-    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!--=============== REMIXICONS ===============-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/3.4.0/remixicon.css" crossorigin="">
     <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
+
+    <!--=============== CSS ===============-->
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
 </head>
 <body>
-<div class="wrapper">
-    <div class="sidebar" th:fragment="sidebar">
-        <h2>Tau Clinics</h2>
-        <ul>
-            <li><a href="/"><i class="fas fa-home"></i><span th:text="#{sidebar.home}">Home</span></a></li>
-            <li><a href="#"><i class="fas fa-user"></i><span th:text="#{sidebar.profile}">Profile</span></a></li>
-            <li><a href="/about"><i class="fas fa-address-card"></i><span th:text="#{sidebar.about}">About</span></a></li>
-            <li><a href="#"><i class="fas fa-project-diagram"></i><span th:text="#{sidebar.portfolio}">Portfolio</span></a></li>
-            <li><a href="#"><i class="fas fa-blog"></i><span th:text="#{sidebar.blogs}">Blogs</span></a></li>
-            <li><a href="#"><i class="fas fa-address-book"></i><span th:text="#{sidebar.contact}">Contact</span></a></li>
-            <li><a href="#"><i class="fas fa-map-pin"></i><span th:text="#{sidebar.map}">Map</span></a></li>
-        </ul>
-        <div class="social_media">
-            <a href="#"><i class="fab fa-facebook-f"></i></a>
-            <a href="#"><i class="fab fa-twitter"></i></a>
-            <a href="#"><i class="fab fa-instagram"></i></a>
+<!-- Sidebar bg -->
+<img th:src="@{/images/background.jpeg}" alt="sidebar img" class="bg-image">
+
+<!--=============== HEADER ===============-->
+<header class="header">
+    <div class="header__container container">
+        <div class="header__toggle" id="header-toggle">
+            <i class="ri-menu-line"></i>
         </div>
+
+        <a href="#" class="header__logo">
+            <img src="" alt="">
+        </a>
     </div>
-    <div class="main_content">
-        <div class="header" th:text="#{sidebar.home}">
-            <div class="buttons" th:fragment="buttons">
-                <button><img th:src="@{/icons/lang-en.png}"
-                             onclick="window.location.href='http://localhost:8081/?local=en'"></button>
-                <button><img th:src="@{/icons/lang-ru.png}"
-                             onclick="window.location.href='http://localhost:8081/?local=ru'"></button>
-                <button><img th:src="@{/icons/lang-kk.png}"
-                             onclick="window.location.href='http://localhost:8081/?local=kk'"></button>
+</header>
+
+<!--=============== SIDEBAR ===============-->
+<div class="sidebar" id="sidebar">
+    <nav class="sidebar__container">
+        <div class="sidebar__logo">
+            <img src="" alt="" class="sidebar__logo-img">
+            <img src="" alt="" class="sidebar__logo-text">
+        </div>
+
+        <div class="sidebar__content">
+            <div class="sidebar__list">
+                <a href="#" class="sidebar__link active-link">
+                    <i class="ri-home-5-line"></i>
+                    <span class="sidebar__link-name" th:text="#{sidebar.home}">Home</span>
+                    <span class="sidebar__link-floating" th:text="#{sidebar.home}">Home</span>
+                </a>
+
+                <a href="#" class="sidebar__link">
+                    <i class="ri-compass-3-line"></i>
+                    <span class="sidebar__link-name"th:text="#{sidebar.services}">Services</span>
+                    <span class="sidebar__link-floating"th:text="#{sidebar.services}">Services</span>
+                </a>
+
+                <a href="#" class="sidebar__link">
+                    <i class="ri-video-line"></i>
+                    <span class="sidebar__link-name"th:text="#{sidebar.home}">Shorts</span>
+                    <span class="sidebar__link-floating"th:text="#{sidebar.home}">Shorts</span>
+                </a>
+
+                <a href="#" class="sidebar__link">
+                    <i class="ri-add-box-line"></i>
+                    <span class="sidebar__link-name" th:text="#{sidebar.appointment}">appointment</span>
+                    <span class="sidebar__link-floating" th:text="#{sidebar.appointment}">appointment</span>
+                </a>
+            </div>
+
+            <div class="sidebar__list">
+                <a href="#" class="sidebar__link">
+                    <i class="ri-history-line"></i>
+                    <span class="sidebar__link-name"th:text="#{sidebar.history}">History</span>
+                    <span class="sidebar__link-floating" th:text="#{sidebar.history}">History</span>
+                </a>
+
+<!--                <a href="#" class="sidebar__link">-->
+<!--                    <i class="ri-time-line"></i>-->
+<!--                    <span class="sidebar__link-name">Watch Later</span>-->
+<!--                    <span class="sidebar__link-floating">Watch Later</span>-->
+<!--                </a>-->
+
+<!--                <a href="#" class="sidebar__link">-->
+<!--                    <i class="ri-play-circle-line"></i>-->
+<!--                    <span class="sidebar__link-name">Playlists</span>-->
+<!--                    <span class="sidebar__link-floating">Playlists</span>-->
+<!--                </a>-->
+
+<!--                <a href="#" class="sidebar__link">-->
+<!--                    <i class="ri-heart-3-line"></i>-->
+<!--                    <span class="sidebar__link-name">Liked Videos</span>-->
+<!--                    <span class="sidebar__link-floating">Liked Videos</span>-->
+<!--                </a>-->
+            </div>
+
+            <h3 class="sidebar__title">
+                <span th:text="#{sidebar.general}">General</span>
+            </h3>
+
+            <div class="sidebar__list">
+<!--                <a href="#" class="sidebar__link">-->
+<!--                    <i class="ri-notification-2-line"></i>-->
+<!--                    <span class="sidebar__link-name">Notifications</span>-->
+<!--                    <span class="sidebar__link-floating">Notifications</span>-->
+<!--                </a>-->
+
+                <a href="#" class="sidebar__link">
+                    <i class="ri-information-line"></i>
+                    <span class="sidebar__link-name" th:text="#{sidebar.about}">About</span>
+                    <span class="sidebar__link-floating" th:text="#{sidebar.about}">About</span>
+                </a>
+
+                <a href="#" class="sidebar__link">
+                    <i class="ri-earth-line"></i>
+                    <span class="sidebar__link-name" th:text="#{sidebar.lang}">Languages</span>
+                    <span class="sidebar__link-floating" th:text="#{sidebar.lang}">Languages</span>
+                </a>
+
+                <a href="#" class="sidebar__link">
+                    <i class="ri-settings-3-line"></i>
+                    <span class="sidebar__link-name" th:text="#{sidebar.settings}">Settings</span>
+                    <span class="sidebar__link-floating" th:text="#{sidebar.settings}">Settings</span>
+                </a>
+
+                <a href="#" class="sidebar__link">
+                    <i class="ri-logout-box-r-line"></i>
+                    <span class="sidebar__link-name" th:text="#{sidebar.logout}">Logout</span>
+                    <span class="sidebar__link-floating" th:text="#{sidebar.logout}">Logout</span>
+                </a>
             </div>
         </div>
-        <div class="info">
+
+        <div class="sidebar__account">
+            <img src="" alt="sidebar image" class="sidebar__perfil">
+
+            <div class="sidebar__names">
+                <h3 class="sidebar__name">Will Lens</h3>
+                <span class="sidebar__email">willens@email.com</span>
+            </div>
+
+            <i class="ri-arrow-right-s-line"></i>
         </div>
-    </div>
+    </nav>
 </div>
+
+<!--=============== MAIN ===============-->
+<main class="main container" id="main">
+    <h1>Sidebar Menu</h1>
+</main>
+
+<!--=============== MAIN JS ===============-->
+<script th:src="@{js/main.js}"></script>
 </body>
 </html>

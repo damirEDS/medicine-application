@@ -18,6 +18,21 @@ public class MainController {
         return "about";
     }
 
+    @GetMapping("/contact")
+    public String contactTemplate(){
+        return "contact";
+    }
+
+    @GetMapping("/profile")
+    public String profileTemplate(){
+        return "profile";
+    }
+
+//    @GetMapping("/")
+//    public String Template(){
+//        return "";
+//    }
+
     @GetMapping("/main")
     public String unsecuredData() {
         return "unsecured";}
