@@ -28,14 +28,23 @@ public class MainController {
         return "profile";
     }
 
-//    @GetMapping("/")
-//    public String Template(){
-//        return "";
-//    }
+    @GetMapping("/appointment")
+    public String appointmentTemplate(){return "appointment";}
 
-    @GetMapping("/main")
-    public String unsecuredData() {
-        return "unsecured";}
+    @GetMapping("/settings")
+    public String settingsTemplate(){
+        return "settings";
+    }
+
+    @GetMapping("/language")
+    public String langugeTemplate(){
+        return "language";
+    }
+
+    @GetMapping("/history")
+    public String historyTemplate(){
+        return "history";
+    }
 
     @GetMapping("/secured")
     public String securedData() {

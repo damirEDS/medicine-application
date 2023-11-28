@@ -1,10 +1,22 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
+<html xmlns:th="https://www.thymeleaf.org">
+<head th:include="fragments/sidebar.html :: head"></head>
 <body>
+<!-- Sidebar bg -->
+<img th:insert="fragments/sidebar.html :: sidebar-bg">
 
+<!--=============== HEADER ===============-->
+<header th:insert="fragments/sidebar.html :: header"></header>
+
+<!--=============== SIDEBAR ===============-->
+<div th:insert="fragments/sidebar.html :: sidebar"></div>
+
+<!--=============== MAIN ===============-->
+<main class="main container" id="main">
+    <h1>Sidebar Menu</h1>
+</main>
+
+<!--=============== MAIN JS ===============-->
+<script th:src="@{js/main.js}"></script>
 </body>
 </html>

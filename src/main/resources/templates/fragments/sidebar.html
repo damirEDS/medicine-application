@@ -33,31 +33,31 @@
 <div class="sidebar" id="sidebar" th:fragment="sidebar">
     <nav class="sidebar__container">
         <div class="sidebar__logo">
-            <img src="" alt="" class="sidebar__logo-img">
+            <img th:src="@{/images/medical-logo-svgrepo-com.svg}" alt="" class="sidebar__logo-img">
             <img src="" alt="" class="sidebar__logo-text">
         </div>
 
         <div class="sidebar__content">
             <div class="sidebar__list">
-                <a th:href="@{/}" class="sidebar__link active-link">
+                <a href="/" class="sidebar__link active-link">
                     <i class="ri-home-5-line"></i>
                     <span class="sidebar__link-name" th:text="#{sidebar.home}">Home</span>
                     <span class="sidebar__link-floating" th:text="#{sidebar.home}">Home</span>
                 </a>
 
-                <a href="#" class="sidebar__link">
+                <a href="" class="sidebar__link">
                     <i class="ri-compass-3-line"></i>
-                    <span class="sidebar__link-name"th:text="#{sidebar.services}">Services</span>
-                    <span class="sidebar__link-floating"th:text="#{sidebar.services}">Services</span>
+                    <span class="sidebar__link-name" th:text="#{sidebar.services}">Services</span>
+                    <span class="sidebar__link-floating" th:text="#{sidebar.services}">Services</span>
                 </a>
 
-                <a href="#" class="sidebar__link">
+                <a href="" class="sidebar__link">
                     <i class="ri-video-line"></i>
-                    <span class="sidebar__link-name"th:text="#{sidebar.home}">Shorts</span>
-                    <span class="sidebar__link-floating"th:text="#{sidebar.home}">Shorts</span>
+                    <span class="sidebar__link-name" th:text="#{sidebar.home}">Shorts</span>
+                    <span class="sidebar__link-floating" th:text="#{sidebar.home}">Shorts</span>
                 </a>
 
-                <a href="#" class="sidebar__link">
+                <a href="/appointment" class="sidebar__link">
                     <i class="ri-add-box-line"></i>
                     <span class="sidebar__link-name" th:text="#{sidebar.appointment}">appointment</span>
                     <span class="sidebar__link-floating" th:text="#{sidebar.appointment.floating}">appointment</span>
@@ -65,9 +65,9 @@
             </div>
 
             <div class="sidebar__list">
-                <a href="#" class="sidebar__link">
+                <a href="/history" class="sidebar__link">
                     <i class="ri-history-line"></i>
-                    <span class="sidebar__link-name"th:text="#{sidebar.history}">History</span>
+                    <span class="sidebar__link-name" th:text="#{sidebar.history}">History</span>
                     <span class="sidebar__link-floating" th:text="#{sidebar.history.floating}">History</span>
                 </a>
 
@@ -101,25 +101,25 @@
                 <!--                    <span class="sidebar__link-floating">Notifications</span>-->
                 <!--                </a>-->
 
-                <a href="#" class="sidebar__link">
+                <a href="/about" class="sidebar__link">
                     <i class="ri-information-line"></i>
                     <span class="sidebar__link-name" th:text="#{sidebar.about}">About</span>
                     <span class="sidebar__link-floating" th:text="#{sidebar.about}">About</span>
                 </a>
 
-                <a href="#" class="sidebar__link">
+                <a href="/language" class="sidebar__link">
                     <i class="ri-earth-line"></i>
                     <span class="sidebar__link-name" th:text="#{sidebar.lang}">Languages</span>
                     <span class="sidebar__link-floating" th:text="#{sidebar.lang}">Languages</span>
                 </a>
 
-                <a href="#" class="sidebar__link">
+                <a href="/settings" class="sidebar__link">
                     <i class="ri-settings-3-line"></i>
                     <span class="sidebar__link-name" th:text="#{sidebar.settings}">Settings</span>
                     <span class="sidebar__link-floating" th:text="#{sidebar.settings}">Settings</span>
                 </a>
 
-                <a href="#" class="sidebar__link">
+                <a href="/login" class="sidebar__link">
                     <i class="ri-logout-box-r-line"></i>
                     <span class="sidebar__link-name" th:text="#{sidebar.logout}">Logout</span>
                     <span class="sidebar__link-floating" th:text="#{sidebar.logout}">Logout</span>
