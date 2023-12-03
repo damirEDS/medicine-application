@@ -39,7 +39,7 @@ public class TranslationConfig {
     public LocaleChangeInterceptor localeChangeInterceptor() {
         LocaleChangeInterceptor localeChangeInterceptor = new LocaleChangeInterceptor();
 
-        localeChangeInterceptor.setParamName("local");
+        localeChangeInterceptor.setParamName("l");
 
         return localeChangeInterceptor;
     }
