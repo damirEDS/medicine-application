@@ -30,8 +30,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
         String authHeader = request.getHeader("Authorization");
         String iin = null;
         String jwt = null;
-        if (authHeader != null && authHeader.startsWith("Bearer ")) {
-            jwt = authHeader.substring(7);
+        if (authHeader != null && authHeader.startsWith("Token ")) {
+            jwt = authHeader.substring(6);
             try {
                 iin = jwtTokenUtils.getIin(jwt);
             } catch (ExpiredJwtException e) {

@@ -1,15 +1,14 @@
 package com.medicineservices.springboot.security.service;
 
+import com.medicineservices.springboot.main.service.PatientService;
 import com.medicineservices.springboot.security.dtos.JwtRequest;
 import com.medicineservices.springboot.security.dtos.JwtResponse;
 import com.medicineservices.springboot.security.dtos.RegistrationUserDto;
 import com.medicineservices.springboot.security.dtos.UserDto;
-import com.medicineservices.springboot.security.entities.Patient;
-import com.medicineservices.springboot.security.exceptions.AppError;
+import com.medicineservices.springboot.main.entities.Patient;
+import com.medicineservices.springboot.main.exceptions.AppError;
 import com.medicineservices.springboot.security.utils.JwtTokenUtils;
-import com.medicineservices.springboot.translation.service.TranslationService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,8 +17,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
-
-import java.util.Locale;
 
 @Service
 @RequiredArgsConstructor

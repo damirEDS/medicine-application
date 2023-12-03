@@ -1,8 +1,8 @@
-package com.medicineservices.springboot.security.repositories;
+package com.medicineservices.springboot.main.repositories;
 
 import org.springframework.data.repository.CrudRepository;
 import org.springframework.stereotype.Repository;
-import com.medicineservices.springboot.security.entities.Patient;
+import com.medicineservices.springboot.main.entities.Patient;
 
 import java.util.Optional;
 

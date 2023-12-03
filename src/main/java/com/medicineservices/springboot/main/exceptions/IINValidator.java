@@ -1,4 +1,4 @@
-package com.medicineservices.springboot.security.exceptions;
+package com.medicineservices.springboot.main.exceptions;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;

@@ -1,11 +1,9 @@
-package com.medicineservices.springboot.security.service;
+package com.medicineservices.springboot.main.service;
 
-import com.medicineservices.springboot.security.entities.Role;
-import com.medicineservices.springboot.security.repositories.RoleRepository;
-import com.medicineservices.springboot.security.entities.Patient;
+import com.medicineservices.springboot.main.entities.Role;
+import com.medicineservices.springboot.main.repositories.RoleRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
-import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
