@@ -9,4 +9,7 @@ public class UserDto {
     private Long id;
     private String iin;
     private String email;
+    private String fullname;
+    private String phoneNumber;
+
 }

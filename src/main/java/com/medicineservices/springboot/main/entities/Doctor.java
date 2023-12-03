@@ -1,22 +1,24 @@
 package com.medicineservices.springboot.main.entities;
 
-import lombok.Data;
-
 import javax.persistence.*;
-//import javax.validation.constraints.Pattern;
-import java.util.Collection;
 
-@Entity
+import com.medicineservices.springboot.main.entities.Role;
+import lombok.Data;
+import org.springframework.stereotype.Component;
+
+import java.util.Collection;
+import java.util.List;
+
 @Data
-@Table(name = "patients")
-public class Patient {
+@Entity
+@Table(name="doctors")
+public class Doctor {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
     @Column(name = "iin", length = 12, unique = true)
-//    @Pattern(regexp = "\\d{12}", message = "ИИН должен состоять из 12 цифр")
     private String iin;
 
     @Column(name = "password")
@@ -25,21 +27,23 @@ public class Patient {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "fullname")
-    private String fullName;
+    @Column(name = "name")
+    private String name;
 
-    @Column(name = "phone_number")
+    @Column(name = "specialization")
+    private String specialization;
+
+    @Column(name = "degree")
+    private String degree;
+
+    @Column(name = "state")
+    private String state;
+
+    @Column(name = "city")
+    private String city;
+
+    @Column(name = "phoneNumber")
     private String phoneNumber;
-
-//    @Column(name = "gender")
-//    private Boolean gender;
-//
-//    @Column(name = "date_of_birth")
-//    private Date dateOfBirth;
-//
-//    @Column(name = "phone_number")
-//    private String phoneNumber;
-
 
     @ManyToMany
     @JoinTable(
@@ -48,4 +52,5 @@ public class Patient {
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Collection<Role> roles;
+
 }

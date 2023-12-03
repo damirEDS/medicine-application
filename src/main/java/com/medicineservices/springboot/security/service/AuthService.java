@@ -32,7 +32,7 @@ public class AuthService {
         } catch (BadCredentialsException e) {
             return new ResponseEntity<>(new AppError(HttpStatus.UNAUTHORIZED.value(), "Неправильный логин или пароль"), HttpStatus.UNAUTHORIZED);
         }
-            UserDetails userDetails = patientService.loadUserByUsername(authRequest.getIin());
+        UserDetails userDetails = patientService.loadUserByUsername(authRequest.getIin());
         String token = jwtTokenUtils.generateToken(userDetails);
         return ResponseEntity.ok(new JwtResponse(token));
     }
@@ -51,6 +51,6 @@ public class AuthService {
             return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Пользователь с указанным ИИН уже существует"), HttpStatus.BAD_REQUEST);
         }
         Patient patient = patientService.createNewUser(registrationUserDto);
-        return ResponseEntity.ok(new UserDto(patient.getId(), patient.getIin(), patient.getEmail()));
+        return ResponseEntity.ok(new UserDto(patient.getId(), patient.getIin(), patient.getEmail(), patient.getFullName(), patient.getPhoneNumber()));
     }
 }

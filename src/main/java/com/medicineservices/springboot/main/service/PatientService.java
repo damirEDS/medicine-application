@@ -66,6 +66,8 @@ public class PatientService implements UserDetailsService {
         patient.setIin(registrationUserDto.getIin());
         patient.setEmail(registrationUserDto.getEmail());
         patient.setPassword(passwordEncoder.encode(registrationUserDto.getPassword()));
+        patient.setFullName(registrationUserDto.getFullname());
+        patient.setPhoneNumber(registrationUserDto.getPhoneNumber());
         patient.setRoles(List.of(roleService.getUserRole()));
         return patientRepository.save(patient);
     }
