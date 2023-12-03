@@ -1,8 +1,7 @@
-package com.medicineservices.springboot.security.entities;
+package com.medicineservices.springboot.main.entities;
 
 import lombok.Data;
 
-import java.util.Date;
 import javax.persistence.*;
 //import javax.validation.constraints.Pattern;
 import java.util.Collection;

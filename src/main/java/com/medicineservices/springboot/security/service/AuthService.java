@@ -1,15 +1,15 @@
 package com.medicineservices.springboot.security.service;
 
+import com.medicineservices.springboot.main.service.PatientService;
 import com.medicineservices.springboot.security.dtos.JwtRequest;
 import com.medicineservices.springboot.security.dtos.JwtResponse;
 import com.medicineservices.springboot.security.dtos.RegistrationUserDto;
 import com.medicineservices.springboot.security.dtos.UserDto;
-import com.medicineservices.springboot.security.entities.Patient;
-import com.medicineservices.springboot.security.exceptions.AppError;
+import com.medicineservices.springboot.main.entities.Patient;
+import com.medicineservices.springboot.main.exceptions.AppError;
 import com.medicineservices.springboot.security.utils.JwtTokenUtils;
-import com.medicineservices.springboot.translation.service.TranslationService;
+import com.medicineservices.springboot.security.utils.IINValidator;
 import lombok.RequiredArgsConstructor;
-import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,8 +18,6 @@ import org.springframework.security.authentication.UsernamePasswordAuthenticatio
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
-
-import java.util.Locale;
 
 @Service
 @RequiredArgsConstructor
@@ -42,6 +40,12 @@ public class AuthService {
     public ResponseEntity<?> createNewUser(@RequestBody RegistrationUserDto registrationUserDto) {
         if (!registrationUserDto.getPassword().equals(registrationUserDto.getConfirmPassword())) {
             return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Пароли не совпадают"), HttpStatus.BAD_REQUEST);
+        }
+        if (registrationUserDto.getIin().length() != 12) {
+            return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "ИИН должен состоять из 12 цифр"), HttpStatus.BAD_REQUEST);
+        }
+        if (!IINValidator.validateIIN(registrationUserDto.getIin())) {
+            return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Некорректный ИИН"), HttpStatus.BAD_REQUEST);
         }
         if (patientService.findByIin(registrationUserDto.getIin()).isPresent()) {
             return new ResponseEntity<>(new AppError(HttpStatus.BAD_REQUEST.value(), "Пользователь с указанным ИИН уже существует"), HttpStatus.BAD_REQUEST);

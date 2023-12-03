@@ -19,25 +19,3 @@
 <!--=============== MAIN JS ===============-->
 <script th:src="@{js/main.js}"></script>
 </body>
-</html><!DOCTYPE html>
-<html xmlns:th="https://www.thymeleaf.org">
-<head th:insert="~{fragments/sidebar.html :: head}"></head>
-<body>
-<!-- Sidebar bg -->
-<img th:insert="~{fragments/sidebar.html :: sidebar-bg}">
-
-<!--=============== HEADER ===============-->
-<header th:insert="~{fragments/sidebar.html :: header}"></header>
-
-<!--=============== SIDEBAR ===============-->
-<div th:insert="~{fragments/sidebar.html :: sidebar}"></div>
-
-<!--=============== MAIN ===============-->
-<main class="main container" id="main">
-  <h1 th:text="#{sidebar.about}">About Us</h1>
-</main>
-
-<!--=============== MAIN JS ===============-->
-<script th:src="@{js/main.js}"></script>
-</body>
-</html>

@@ -1,4 +1,4 @@
-package com.medicineservices.springboot.security.entities;
+package com.medicineservices.springboot.main.entities;
 
 import lombok.Data;
 

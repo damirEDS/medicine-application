@@ -1,9 +1,8 @@
-package com.medicineservices.springboot.security.service;
+package com.medicineservices.springboot.main.service;
 
 import lombok.RequiredArgsConstructor;
 import com.medicineservices.springboot.security.dtos.RegistrationUserDto;
 
-import org.springframework.context.annotation.Lazy;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,8 +11,8 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import com.medicineservices.springboot.security.entities.Patient;
-import com.medicineservices.springboot.security.repositories.PatientRepository;
+import com.medicineservices.springboot.main.entities.Patient;
+import com.medicineservices.springboot.main.repositories.PatientRepository;
 
 import java.util.List;
 import java.util.Optional;
