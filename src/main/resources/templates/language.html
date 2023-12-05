@@ -15,15 +15,15 @@
 <main class="main container" id="main">
   <h1 th:text="#{language.main}">Choose the language:</h1>
   <div class="language-buttons">
-    <button onclick="window.location.href='http://localhost:8081/language/?l=en'">
+    <button onclick="window.location.href='http://localhost:8081/language/?lang=en'">
       <img th:src="@{/icons/lang-en.png}" alt="En" />
       <span th:text="#{language.en}">En</span>
     </button>
-    <button onclick="window.location.href='http://localhost:8081/language/?l=ru'">
+    <button onclick="window.location.href='http://localhost:8081/language/?lang=ru'">
       <img th:src="@{/icons/lang-ru.png}" alt="Ru" />
       <span th:text="#{language.ru}">Ru</span>
     </button>
-    <button onclick="window.location.href='http://localhost:8081/language/?l=kk'">
+    <button onclick="window.location.href='http://localhost:8081/language/?lang=kk'">
       <img th:src="@{/icons/lang-kk.png}" alt="Kk" />
       <span th:text="#{language.kk}">Kk</span>
     </button>
