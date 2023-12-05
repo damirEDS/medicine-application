@@ -13,9 +13,24 @@
 
 <!--=============== MAIN ===============-->
 <main class="main container" id="main">
-  <h1 th:text="#{sidebar.about}">About Us</h1>
+  <h1 th:text="#{language.main}">Выберите язык</h1>
+  <div class="language-buttons">
+    <button onclick="window.location.href='http://localhost:8081/language/?l=en'">
+      <img th:src="@{/icons/lang-en.png}" alt="En" />
+      <span th:text="#{language.en}">En</span>
+    </button>
+    <button onclick="window.location.href='http://localhost:8081/language/?l=ru'">
+      <img th:src="@{/icons/lang-ru.png}" alt="Ru" />
+      <span th:text="#{language.ru}">Ru</span>
+    </button>
+    <button onclick="window.location.href='http://localhost:8081/language/?l=kk'">
+      <img th:src="@{/icons/lang-kk.png}" alt="Kk" />
+      <span th:text="#{language.kk}">Kk</span>
+    </button>
+  </div>
 </main>
+
 
 <!--=============== MAIN JS ===============-->
 <script th:src="@{js/main.js}"></script>
-</body>
+</body></html>
