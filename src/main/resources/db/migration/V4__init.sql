@@ -14,11 +14,14 @@ CREATE TABLE doctors
 );
 insert into roles (name)
 values ('ROLE_PATIENT'),
-       ('ROLE_ADMIN');
+       ('ROLE_ADMIN'),
+       ('ROLE_DOCTOR');
 
 insert into patients (iin, password, email, fullname, phone_number)
-values ('740512402091', '$2a$04$Fx/SX9.BAvtPlMyIIqqFx.hLY2Xp8nnhpzvEEVINvVpwIPbA3v/.i', 'user@gmail.com', 'Test Test Test','87787787878'),
-       ('050310501648', '$2a$04$Fx/SX9.BAvtPlMyIIqqFx.hLY2Xp8nnhpzvEEVINvVpwIPbA3v/.i', 'admin@gmail.com', 'Test Test Test','87007007070');
+values ('740512402091', '$2a$04$Fx/SX9.BAvtPlMyIIqqFx.hLY2Xp8nnhpzvEEVINvVpwIPbA3v/.i', 'user@gmail.com',
+        'Test Test Test', '87787787878'),
+       ('050310501648', '$2a$04$Fx/SX9.BAvtPlMyIIqqFx.hLY2Xp8nnhpzvEEVINvVpwIPbA3v/.i', 'admin@gmail.com',
+        'Test Test Test', '87007007070');
 
 insert into users_roles (user_id, role_id)
 values (1, 1),
