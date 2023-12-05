@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Форма Входа</title>
+</head>
+<body>
+<h2>Вход</h2>
+<form th:action="@{/auth}" th:object="${jwtRequest}" method="post" enctype="application/json">
+    <label for="iin">ИИН:</label><br>
+    <input type="text" id="iin" th:field="*{iin}" required><br>
+
+    <label for="password">Пароль:</label><br>
+    <input type="password" id="password" th:field="*{password}" required><br>
+
+    <button type="submit">Войти</button>
+</form>
+</body>
+</html>
