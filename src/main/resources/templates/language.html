@@ -1,6 +1,9 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
-<head th:insert="~{fragments/sidebar.html :: head}"></head>
+<head>
+  <title th:text="#{language.title}">Title</title>
+  <th:block th:replace="~{fragments/sidebar.html :: head}"></th:block>
+</head>
 <body>
 <!-- Sidebar bg -->
 <img th:insert="~{fragments/sidebar.html :: sidebar-bg}">
@@ -15,15 +18,15 @@
 <main class="main container" id="main">
   <h1 th:text="#{language.main}">Choose the language:</h1>
   <div class="language-buttons">
-    <button onclick="window.location.href='http://localhost:8081/language/?lang=en'">
+    <button onclick="window.location.href='http://localhost:8081/med/language/?lang=en'">
       <img th:src="@{/icons/lang-en.png}" alt="En" />
       <span th:text="#{language.en}">En</span>
     </button>
-    <button onclick="window.location.href='http://localhost:8081/language/?lang=ru'">
+    <button onclick="window.location.href='http://localhost:8081/med/language/?lang=ru'">
       <img th:src="@{/icons/lang-ru.png}" alt="Ru" />
       <span th:text="#{language.ru}">Ru</span>
     </button>
-    <button onclick="window.location.href='http://localhost:8081/language/?lang=kk'">
+    <button onclick="window.location.href='http://localhost:8081/med/language/?lang=kk'">
       <img th:src="@{/icons/lang-kk.png}" alt="Kk" />
       <span th:text="#{language.kk}">Kk</span>
     </button>
