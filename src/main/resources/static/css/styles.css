@@ -487,6 +487,17 @@ img {
         font-size: 18px;
         font-family: "Montserrat", sans-serif;
     }
-
-
+    .about {
+        display: flex;
+        margin: 5% 3%;
+    }
+    section {
+        width: 300px;
+        padding: 5px;
+        margin: 55px 100px;
+        flex-direction: column;
+    }
+    .about-desc {
+        display: flex;
+    }
 }

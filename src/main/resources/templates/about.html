@@ -13,9 +13,38 @@
 
 <!--=============== MAIN ===============-->
 <main class="main container" id="main">
-  <h1 th:text="#{sidebar.about}">About Us</h1>
-  <img th:src="@{/images/about.jpg}" alt="Description of the image">
+    <h1 th:text="#{sidebar.about}">About Us</h1>
+    <div class="about">
+        <img th:src="@{/images/about.jpg}" alt="About">
+        <section>
+            <h3 th:text="#{about.mission}">Our mission</h3>
+            <p th:text="#{about.mission.description}">We are dedicated to improving the health and well-being of our patients.
+                \ At our center, we offer high-quality medical services focused on the comfort and long-term well-being of everyone.
+                about.mission.additional=Our mission is to ensure that cutting-edge treatments and care are available,\
+                \ providing support and understanding to our patients every step of the way to recovery.</p>
+        </section>
 
+    </div>
+    <div class="about-desc">
+        <section>
+            <h3 th:text="#{about.team}">Our team</h3>
+            <p th:text="#{about.team.description}">
+                Our team consists of highly qualified specialists with extensive experience in various fields \
+                of medicine. We work together to provide the highest level of care and treatment to every patient.
+                about.team.additional=Our priority is your health. We strive for professional efficiency and compassion in\
+                \ all aspects of our work to provide you with optimal health care.</p>
+        </section>
+        <section>
+            <h3 th:text="#{about.offering}">Our services</h3>
+            <p th:text="#{about.offering.description}">
+                We offer a wide range of medical services, including
+                diagnosis, treatment and rehabilitation.\
+                \ Our team of specialists strives for an individual approach to each patient.
+                about.offering.additional=We pride ourselves on providing state-of-the-art technology and \
+                innovative treatments designed to achieve the best results for our patients.</p>
+        </section>
+
+    </div>
 </main>
 
 <!--=============== MAIN JS ===============-->
