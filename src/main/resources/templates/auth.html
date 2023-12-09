@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title th:text="#{auth.title}">Title</title>
+    <link rel="stylesheet" th:href="@{/css/verify.css}">
+
+</head>
+<body>
+<!-- Sidebar bg -->
+<form id="loginForm">
+    <label for="iin" th:text="#{auth.iin.label}">ИИН:</label>
+    <input type="text" id="iin" name="iin" th:placeholder="#{auth.iin.placeholder}" required><br><br>
+
+    <label for="password" th:text="#{auth.password.label}">Пароль:</label>
+    <input type="password" id="password" name="password" th:placeholder="#{auth.password.placeholder}" required><br><br>
+
+    <input class="submit" type="submit" th:value="#{auth.link}">
+    <div class="question">
+        <p th:text="#{auth.question}">Все еще нет аккаунта?</p>
+        <a href="/registration" th:text="#{registration.link}">Зарегистрироваться</a>
+    </div>
+</form>
+
+<div id="error-message"></div>
+<script>
+    document.getElementById('loginForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Предотвращаем стандартное поведение формы (отправку)
+
+        // Получаем данные из формы
+        const iin = document.getElementById('iin').value;
+        const password = document.getElementById('password').value;
+
+        // Формируем объект для отправки
+        const data = {
+            iin: iin,
+            password: password
+        };
+
+        // Отправка POST-запроса на сервер
+        fetch('auth', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        })
+            .then(response => {
+                // Обработка ответа от сервера
+                if (response.ok) {
+                    // Если ответ успешный, выводим сообщение для пользователя
+                    window.location.href = '/med/';
+                } else {
+                    // Если есть ошибки, читаем содержимое ответа и выводим сообщение об ошибке для пользователя
+                    response.json().then(data => {
+                        showErrorMessage(`${data.message}`);
+                    });
+                }
+            })
+            .catch(error => {
+                // Обработка ошибок сети или других проблем
+                console.error('', error);
+                // Выводим сообщение об ошибке для пользователя
+                showErrorMessage('error');
+            });
+        function showErrorMessage(message) {
+            const errorMessage = document.getElementById('error-message');
+            errorMessage.textContent = message;
+            errorMessage.style.display = 'block';
+
+            setTimeout(function() {
+                errorMessage.style.display = 'none';
+            }, 3000); // Скрыть сообщение об ошибке через 3 секунды (можете изменить значение по желанию)
+        }
+    });
+</script>
+</body>
+</html>

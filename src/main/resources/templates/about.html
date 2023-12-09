@@ -1,6 +1,10 @@
 <!DOCTYPE html>
 <html xmlns:th="https://www.thymeleaf.org">
-<head th:insert="~{fragments/sidebar.html :: head}"></head>
+<head>
+    <title th:text="#{about.title}">Title</title>
+    <!--=============== MAIN JS ===============-->
+    <th:block th:replace="~{fragments/sidebar.html :: head}"></th:block>
+</head>
 <body>
 <!-- Sidebar bg -->
 <img th:insert="~{fragments/sidebar.html :: sidebar-bg}">
@@ -13,10 +17,22 @@
 
 <!--=============== MAIN ===============-->
 <main class="main container" id="main">
-  <h1 th:text="#{sidebar.about}">About Us</h1>
-</main>
+    <h1 th:text="#{sidebar.about}">About Us</h1>
+    <div class="about">
+        <img th:src="@{/images/about.jpg}" alt="About">
+        <section>
+            <h3 th:text="#{about.mission}">Our mission</h3>
+            <p th:text="#{about.mission.description}">We are dedicated to improving the health and well-being of our patients.
+                \ At our center, we offer high-quality medical services focused on the comfort and long-term well-being of everyone.
+                about.mission.additional=Our mission is to ensure that cutting-edge treatments and care are available,\
+                \ providing support and understanding to our patients every step of the way to recovery.</p>
+            <p th:text="#{about.mission.additional}">
+                Our mission is to ensure that cutting-edge treatments and care are available,\
+                \ providing support and understanding to our patients every step of the way to recovery.</p>
+        </section>
 
-<!--=============== MAIN JS ===============-->
-<script th:src="@{js/main.js}"></script>
+    </div>
+</main>
+<script th:insert="~{fragments/sidebar.html :: js}"></script>
 </body>
 </html>

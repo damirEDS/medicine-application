@@ -48,6 +48,13 @@ public class PatientService implements UserDetailsService {
     public Optional<Patient> findByIin(String iin) {
         return patientRepository.findByIin(iin);
     }
+    public Optional<Patient> findByEmail(String email) {
+        return patientRepository.findByEmail(email);
+    }
+    public Optional<Patient> findByPhone(String phoneNumber) {
+        return patientRepository.findByPhoneNumber(phoneNumber);
+    }
+
 
     @Override
     @Transactional
@@ -66,6 +73,8 @@ public class PatientService implements UserDetailsService {
         patient.setIin(registrationUserDto.getIin());
         patient.setEmail(registrationUserDto.getEmail());
         patient.setPassword(passwordEncoder.encode(registrationUserDto.getPassword()));
+        patient.setFullName(registrationUserDto.getFullname());
+        patient.setPhoneNumber(registrationUserDto.getPhoneNumber());
         patient.setRoles(List.of(roleService.getUserRole()));
         return patientRepository.save(patient);
     }
