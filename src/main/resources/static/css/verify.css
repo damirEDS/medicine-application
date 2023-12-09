@@ -1,0 +1,78 @@
+body {
+    background:#162162;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+form{
+    background: aliceblue;
+    width: 300px;
+    border: 10px solid #1711ea63;
+    border-radius: 50px;
+    box-shadow: 20px 0px 0px 0px rgb(255 255 255 / 10%);
+}
+/* Стили для формы */
+#loginForm {
+    padding: 20px;
+}
+#langForm {
+    padding: 20px;
+    width: 340px;
+}
+#registerForm {
+    height: 425px;
+    padding: 40px;
+}
+/* Стили для кнопки зарегистрироваться */
+input {
+    width: 90%;
+    height: 20px;
+    border-radius: 12px;
+}
+.submit {
+    background-color: #010e5b;
+    border-radius: 12%;
+    color: whitesmoke;
+    border: 0px solid blue;
+    width: 93%;
+    height: 40px;
+}
+#error-message {
+    display: none;
+    position: fixed;
+    top: 25%;
+    left: 78%;
+    width: 20%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #cd1039;
+    color: #fff;
+    border-radius: 30px;
+    animation: fadeInOut 5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+@keyframes fadeInOut {
+    0% { opacity: 0; }
+    10% { opacity: 1; }
+    90% { opacity: 1; }
+    100% { opacity: 0; }
+}
+.question {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline
+}
+.lang {
+    border: none;
+    border-radius: 25px;
+    padding: 10px 20px;
+    background-color: #ffffff6e;
+    cursor: pointer;
+    margin: 1% 30%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+}

@@ -492,12 +492,13 @@ img {
         margin: 5% 3%;
     }
     section {
-        width: 300px;
+        display: flex;
+        width: 360px;
         padding: 5px;
-        margin: 55px 100px;
+        margin: 60px 80px;
         flex-direction: column;
     }
-    .about-desc {
-        display: flex;
+    p {
+        padding: 15px;
     }
 }
