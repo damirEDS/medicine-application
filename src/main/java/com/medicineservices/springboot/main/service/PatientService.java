@@ -48,6 +48,13 @@ public class PatientService implements UserDetailsService {
     public Optional<Patient> findByIin(String iin) {
         return patientRepository.findByIin(iin);
     }
+    public Optional<Patient> findByEmail(String email) {
+        return patientRepository.findByEmail(email);
+    }
+    public Optional<Patient> findByPhone(String phoneNumber) {
+        return patientRepository.findByPhoneNumber(phoneNumber);
+    }
+
 
     @Override
     @Transactional

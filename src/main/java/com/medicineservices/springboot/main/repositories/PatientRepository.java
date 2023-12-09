@@ -9,4 +9,6 @@ import java.util.Optional;
 @Repository
 public interface PatientRepository extends CrudRepository<Patient, Long> {
     Optional<Patient> findByIin(String iin);
+    Optional<Patient> findByEmail(String email);
+    Optional<Patient> findByPhoneNumber(String phoneNumber);
 }
