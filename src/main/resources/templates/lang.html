@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="#{welcome.title}">Welcome</title>
+    <link rel="stylesheet" th:href="@{/css/verify.css}">
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+</head>
+<body>
+<form id="langForm">
+    <a class="lang" href="?lang=en">
+        <img th:src="@{/icons/lang-en.png}" alt="En"/>
+        <span th:text="#{language.en}">English</span>
+    </a>
+    <a class="lang" href="?lang=ru">
+        <img th:src="@{/icons/lang-ru.png}" alt="Ru"/>
+        <span th:text="#{language.ru}">Русский</span>
+    </a>
+    <a class="lang" href="?lang=kk">
+        <img th:src="@{/icons/lang-kk.png}" alt="Kk"/>
+        <span th:text="#{language.kk}">Қазақша</span>
+    </a>
+    <input class="submit" type="submit" th:value="#{continue.link}">
+</form>
+<script>
+    document.getElementById('langForm').addEventListener('submit', function (event) {
+    event.preventDefault();
+    window.location.href = '/auth';
+    });
+</script>
+</body>
+</html>
