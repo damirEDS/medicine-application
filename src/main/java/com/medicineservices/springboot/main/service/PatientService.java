@@ -54,6 +54,10 @@ public class PatientService implements UserDetailsService {
     public Optional<Patient> findByPhone(String phoneNumber) {
         return patientRepository.findByPhoneNumber(phoneNumber);
     }
+    public boolean checkIfIinExists(String iin) {
+        // Реализация метода для проверки наличия ИИН в базе данных
+        return patientRepository.existsByIin(iin);
+    }
 
 
     @Override

@@ -33,6 +33,11 @@ public class AuthService {
     private final MessageSource messageSource;
 
     public ResponseEntity<?> createAuthToken(@RequestBody JwtRequest authRequest) {
+        if (!patientService.checkIfIinExists(authRequest.getIin())) {
+            Locale currentLocale = LocaleContextHolder.getLocale();
+            String errorMessage = messageSource.getMessage("error.iin.not.found", null, "IIN not found", currentLocale);
+            return new ResponseEntity<>(new AppError(HttpStatus.NOT_FOUND.value(), errorMessage), HttpStatus.NOT_FOUND);
+        }
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authRequest.getIin(), authRequest.getPassword()));
         } catch (BadCredentialsException e) {
