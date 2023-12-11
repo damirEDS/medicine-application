@@ -18,6 +18,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.BadCredentialsException;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -32,6 +34,13 @@ public class AuthService {
     private final AuthenticationManager authenticationManager;
     private final MessageSource messageSource;
 
+    public String getCurrentUsername() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+        if (authentication != null) {
+            return authentication.getName();
+        }
+        return null;
+    }
     public ResponseEntity<?> createAuthToken(@RequestBody JwtRequest authRequest) {
         if (!patientService.checkIfIinExists(authRequest.getIin())) {
             Locale currentLocale = LocaleContextHolder.getLocale();
